@@ -4,6 +4,8 @@
 #define STACK_H
 
 #include <vector>
+#include <stdexcept>//used to be able to "throw" exceptions
+
 using namespace std;
 
 class Stack
@@ -12,16 +14,15 @@ private:
 
       vector<int> data;
   
-
 public:
 
     // No default c'tor needs to be declared 
     // The vector "knows" how to initialize itself
-
+        
 
    // No d'tor needs to be declared
-   // The vector "knows" how to destroy itself
-
+   // The vector "knows" how to destroy itself   
+ 
    int size();
 
    void push(int);

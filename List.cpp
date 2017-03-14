@@ -31,15 +31,15 @@ void List::insert(int val, int k)
 {
 	if (k < 1 or k > num_elements +1) //if the location is invalid
 	     throw out_of_range("List::insertAt(...)");//throw an "out_of_range" exception
-	
-	
+		
 	Node* newPtr = new Node{val};
 	
 	if(k == 1)
 	{
 	  newPtr->link = frontPtr;
 	  frontPtr = newPtr;
-	 }
+	}
+
 	else
 	 {  
 	
@@ -58,6 +58,23 @@ void List::insert(int val, int k)
 
      num_elements++;
  }
+
+
+int List::getAt(int k){
+	if (k < 1 or k > num_elements)//if the location is invalid 
+	     throw out_of_range("List::getAt(...)");//throw an "out_of_range" exception
+
+	Node * tmpPtr = frontPtr;
+	
+	int loc = 1;
+	
+	while(loc != k){
+		tmpPtr = tmpPtr -> link;
+		loc++;
+	}
+
+	return tmpPtr -> data;
+}
 
 void List::remove(int k)
 {
@@ -93,3 +110,8 @@ void List::remove(int k)
 	
 	//Implementations of missing operations
 	
+void List::clear(){
+	while(size() > 0);
+		remove(1);
+}
+
